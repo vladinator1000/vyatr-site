@@ -5,7 +5,7 @@ import { Meta } from '../layout/Meta';
 import { Main } from '../templates/Main';
 
 const About = () => (
-  <Main meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}>
+  <Main meta={<Meta title="Vyatr" description="Games" />}>
     <Content>
       <section>
         <h1>
