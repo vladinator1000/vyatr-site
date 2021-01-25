@@ -53,7 +53,7 @@ const Meta = (props: IMetaProps) => {
         />
         <meta name="author" content={Config.author} key="author" />
         {props.canonical && <link rel="canonical" href={props.canonical} key="canonical" />}
-        <meta property="og:title" content={`${props.title} | ${Config.site_name}`} key="og:title" />
+        <meta property="og:title" content={Config.site_name} key="og:title" />
         <meta
           property="og:description"
           content={props.description ? props.description : Config.description}
