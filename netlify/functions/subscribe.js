@@ -12,7 +12,7 @@ exports.handler = async (event) => {
     }
   }
 
-  const { first_name, email } = JSON.parse(event.body)
+  const { email } = JSON.parse(event.body)
 
   const response = await fetch(`${CONVERTKIT_BASE_URL}/forms/${CONVERTKIT_FORM_ID}/subscribe`, {
     method: 'POST',
@@ -20,7 +20,6 @@ exports.handler = async (event) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      first_name,
       email,
       api_key: process.env.CONVERTKIT_API_PUBLIC,
     }),
