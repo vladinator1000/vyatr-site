@@ -1,5 +1,6 @@
 {
-  "name": "next-js-boilerplate",
+  "name": "vyatr",
+  "author": "Vlady Veselinov",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
