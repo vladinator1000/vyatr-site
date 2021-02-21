@@ -1,24 +1,24 @@
-import React from 'react';
+import React from 'react'
 
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import Head from 'next/head'
+import { useRouter } from 'next/router'
 
-import { Config } from '../utils/Config';
-import { addTrailingSlash } from '../utils/Url';
+import { Config } from '../utils/Config'
+import { addTrailingSlash } from '../utils/Url'
 
 type IMetaProps = {
-  title: string;
-  description: string;
-  canonical?: string;
+  title: string
+  description: string
+  canonical?: string
   post?: {
-    image: string;
-    date: string;
-    modified_date: string;
-  };
-};
+    image: string
+    date: string
+    modified_date: string
+  }
+}
 
 const Meta = (props: IMetaProps) => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <>
@@ -44,7 +44,11 @@ const Meta = (props: IMetaProps) => {
           href={`${process.env.baseUrl}/favicon-16x16.png`}
           key="icon16"
         />
-        <link rel="icon" href={`${process.env.baseUrl}/favicon.ico`} key="favicon" />
+        <link
+          rel="icon"
+          href={`${process.env.baseUrl}/favicon.ico`}
+          key="favicon"
+        />
         <title>{Config.site_name}</title>
         <meta
           name="description"
@@ -52,7 +56,9 @@ const Meta = (props: IMetaProps) => {
           key="description"
         />
         <meta name="author" content={Config.author} key="author" />
-        {props.canonical && <link rel="canonical" href={props.canonical} key="canonical" />}
+        {props.canonical && (
+          <link rel="canonical" href={props.canonical} key="canonical" />
+        )}
         <meta property="og:title" content={Config.site_name} key="og:title" />
         <meta
           property="og:description"
@@ -60,7 +66,11 @@ const Meta = (props: IMetaProps) => {
           key="og:description"
         />
         <meta property="og:locale" content={Config.locale} key="og:locale" />
-        <meta property="og:site_name" content={Config.site_name} key="og:site_name" />
+        <meta
+          property="og:site_name"
+          content={Config.site_name}
+          key="og:site_name"
+        />
         {props.post && (
           <>
             <meta property="og:type" content="article" key="og:type" />
@@ -69,7 +79,11 @@ const Meta = (props: IMetaProps) => {
               content={`${Config.url}${process.env.baseUrl}${props.post.image}`}
               key="og:image"
             />
-            <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
+            <meta
+              name="twitter:card"
+              content="summary_large_image"
+              key="twitter:card"
+            />
             <meta
               property="article:published_time"
               content={new Date(props.post.date).toISOString()}
@@ -86,28 +100,38 @@ const Meta = (props: IMetaProps) => {
               dangerouslySetInnerHTML={{
                 __html: `
           {
-            "description": "${props.description ? props.description : Config.description}",
+            "description": "${
+              props.description ? props.description : Config.description
+            }",
             "author": {
               "@type": "Person",
               "name": "${Config.author}"
             },
             "@type": "BlogPosting",
-            "url": "${Config.url}${process.env.baseUrl}${addTrailingSlash(router.asPath)}",
+            "url": "${Config.url}${process.env.baseUrl}${addTrailingSlash(
+                  router.asPath,
+                )}",
             "publisher": {
               "@type": "Organization",
               "logo": {
                 "@type": "ImageObject",
-                "url": "${Config.url}${process.env.baseUrl}/assets/images/logo.png"
+                "url": "${Config.url}${
+                  process.env.baseUrl
+                }/assets/images/logo.png"
               },
               "name": "${Config.author}"
             },
             "headline": "${props.title} | ${Config.site_name}",
             "image": ["${Config.url}${process.env.baseUrl}${props.post.image}"],
             "datePublished": "${new Date(props.post.date).toISOString()}",
-            "dateModified": "${new Date(props.post.modified_date).toISOString()}",
+            "dateModified": "${new Date(
+              props.post.modified_date,
+            ).toISOString()}",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "${Config.url}${process.env.baseUrl}${addTrailingSlash(router.asPath)}"
+              "@id": "${Config.url}${process.env.baseUrl}${addTrailingSlash(
+                  router.asPath,
+                )}"
             },
             "@context": "http://schema.org"
           }`,
@@ -118,7 +142,7 @@ const Meta = (props: IMetaProps) => {
         )}
       </Head>
     </>
-  );
-};
+  )
+}
 
-export { Meta };
+export { Meta }

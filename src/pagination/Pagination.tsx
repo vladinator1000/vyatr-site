@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-import Link from 'next/link';
+import Link from 'next/link'
 
-import { convertUrlToLinkHref } from '../utils/Pagination';
+import { convertUrlToLinkHref } from '../utils/Pagination'
 
 export type IPaginationProps = {
-  previous?: string;
-  next?: string;
-};
+  previous?: string
+  next?: string
+}
 
 const Pagination = (props: IPaginationProps) => (
   <div className="text-sm flex justify-between">
@@ -27,6 +27,6 @@ const Pagination = (props: IPaginationProps) => (
       </div>
     )}
   </div>
-);
+)
 
-export { Pagination };
+export { Pagination }

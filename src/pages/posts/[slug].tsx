@@ -1,30 +1,30 @@
-import React from 'react';
+import React from 'react'
 
-import { format } from 'date-fns';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { format } from 'date-fns'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
-import { Content } from '../../content/Content';
-import { Meta } from '../../layout/Meta';
-import { Main } from '../../templates/Main';
-import { getAllPosts, getPostBySlug } from '../../utils/Content';
-import { markdownToHtml } from '../../utils/Markdown';
+import { Content } from '../../content/Content'
+import { Meta } from '../../layout/Meta'
+import { Main } from '../../templates/Main'
+import { getAllPosts, getPostBySlug } from '../../utils/Content'
+import { markdownToHtml } from '../../utils/Markdown'
 
 type IPostUrl = {
-  slug: string;
-};
+  slug: string
+}
 
 type IPostProps = {
-  title: string;
-  description: string;
-  date: string;
-  modified_date: string;
-  image: string;
-  content: string;
-};
+  title: string
+  description: string
+  date: string
+  modified_date: string
+  image: string
+  content: string
+}
 
 const DisplayPost = (props: IPostProps) => (
   <Main
-    meta={(
+    meta={
       <Meta
         title={props.title}
         description={props.description}
@@ -34,10 +34,14 @@ const DisplayPost = (props: IPostProps) => (
           modified_date: props.modified_date,
         }}
       />
-    )}
+    }
   >
-    <h1 className="text-center font-bold text-3xl text-gray-900">{props.title}</h1>
-    <div className="text-center text-sm mb-8">{format(new Date(props.date), 'LLLL d, yyyy')}</div>
+    <h1 className="text-center font-bold text-3xl text-gray-900">
+      {props.title}
+    </h1>
+    <div className="text-center text-sm mb-8">
+      {format(new Date(props.date), 'LLLL d, yyyy')}
+    </div>
 
     <Content>
       <div
@@ -46,10 +50,10 @@ const DisplayPost = (props: IPostProps) => (
       />
     </Content>
   </Main>
-);
+)
 
 export const getStaticPaths: GetStaticPaths<IPostUrl> = async () => {
-  const posts = getAllPosts(['slug']);
+  const posts = getAllPosts(['slug'])
 
   return {
     paths: posts.map((post) => ({
@@ -58,10 +62,12 @@ export const getStaticPaths: GetStaticPaths<IPostUrl> = async () => {
       },
     })),
     fallback: false,
-  };
-};
+  }
+}
 
-export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
+  params,
+}) => {
   const post = getPostBySlug(params!.slug, [
     'title',
     'description',
@@ -70,8 +76,8 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({ par
     'image',
     'content',
     'slug',
-  ]);
-  const content = await markdownToHtml(post.content || '');
+  ])
+  const content = await markdownToHtml(post.content || '')
 
   return {
     props: {
@@ -82,7 +88,7 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({ par
       image: post.image,
       content,
     },
-  };
-};
+  }
+}
 
-export default DisplayPost;
+export default DisplayPost

@@ -1,9 +1,9 @@
-import React from 'react';
-import MailingList from '../components/MailingList';
+import React from 'react'
+import Subscribe from '../components/Subscribe'
 
-import { Content } from '../content/Content';
-import { Meta } from '../layout/Meta';
-import { Main } from '../templates/Main';
+import { Content } from '../content/Content'
+import { Meta } from '../layout/Meta'
+import { Main } from '../templates/Main'
 
 const About = () => (
   <Main meta={<Meta title="Vyatr" description="Games" />}>
@@ -14,9 +14,9 @@ const About = () => (
         </h1>
         <p>Bring winter onto the world.</p>
       </section>
-      <MailingList />
+      <Subscribe />
     </Content>
   </Main>
-);
+)
 
-export default About;
+export default About

@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import { format } from 'date-fns';
-import Link from 'next/link';
+import { format } from 'date-fns'
+import Link from 'next/link'
 
-import { Pagination, IPaginationProps } from '../pagination/Pagination';
-import { PostItems } from '../utils/Content';
+import { Pagination, IPaginationProps } from '../pagination/Pagination'
+import { PostItems } from '../utils/Content'
 
 export type IBlogGalleryProps = {
-  posts: PostItems[];
-  pagination: IPaginationProps;
-};
+  posts: PostItems[]
+  pagination: IPaginationProps
+}
 
 const BlogGallery = (props: IBlogGalleryProps) => (
   <>
@@ -27,8 +27,11 @@ const BlogGallery = (props: IBlogGalleryProps) => (
       ))}
     </ul>
 
-    <Pagination previous={props.pagination.previous} next={props.pagination.next} />
+    <Pagination
+      previous={props.pagination.previous}
+      next={props.pagination.next}
+    />
   </>
-);
+)
 
-export { BlogGallery };
+export { BlogGallery }

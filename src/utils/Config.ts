@@ -6,4 +6,4 @@ export const Config = {
   locale: 'en',
   author: 'The Vyatr Team',
   pagination_size: 7,
-};
+}

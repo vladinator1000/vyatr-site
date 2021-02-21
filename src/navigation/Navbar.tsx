@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from 'react'
 
 type INavbarProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 const Navbar = (props: INavbarProps) => (
   <ul className="navbar flex flex-wrap text-xl pb-1">
@@ -20,6 +20,6 @@ const Navbar = (props: INavbarProps) => (
       `}
     </style>
   </ul>
-);
+)
 
-export { Navbar };
+export { Navbar }

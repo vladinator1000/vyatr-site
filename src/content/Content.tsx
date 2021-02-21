@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from 'react'
 
 type IContentProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 const Content = (props: IContentProps) => (
   <div className="content">
@@ -28,6 +28,6 @@ const Content = (props: IContentProps) => (
       `}
     </style>
   </div>
-);
+)
 
-export { Content };
+export { Content }
