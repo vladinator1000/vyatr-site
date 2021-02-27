@@ -8,7 +8,7 @@ import { Main } from '../templates/Main'
 const About = () => (
   <Main meta={<Meta title="Vyatr" description="Games" />}>
     <Content>
-      <section className="p-2 rounded bg-gray-100 mb-3">
+      <section className="p-2 rounded mb-3">
         <h1>
           <b>🌳 Trees</b>
         </h1>

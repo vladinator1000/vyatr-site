@@ -27,7 +27,7 @@ function Subscribe(): ReactElement {
   }
 
   if (didSubscribe) {
-    return <span>Thanks for subscribing! Please check your email.</span>
+    return <span>Thanks! Please check your email to confirm your subscription.</span>
   }
 
   return (
